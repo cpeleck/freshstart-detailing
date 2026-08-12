@@ -1,12 +1,1027 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fresh Start Mobile Detailing</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Fresh Start Mobile Detailing — We Come to You | Evansville & Madison, WI</title>
+<meta name="description" content="Mobile car detailing that comes to your driveway. Interior & exterior detailing, maintenance plans, and ceramic protection serving Evansville, Madison, and southern Wisconsin." />
+
+<!-- ============================================================
+  EDIT-ME CHECKLIST (search this file for "EDIT:" to find every spot)
+  1. EDIT: PRICING  — all prices live in one JS object near the bottom
+  2. EDIT: FORMSPREE — replace YOUR_FORM_ID in the <form> action
+  3. EDIT: PHOTOS   — swap the placeholder <img> src values in the
+                      Before/After section for real before/after shots
+  4. EDIT: CONTACT  — phone number + email in header, contact, footer
+  5. EDIT: QUOTES   — testimonial placeholder text
+============================================================= -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============ DESIGN TOKENS ============ */
+:root{
+  --ink:        #1c2723;   /* deep green-charcoal */
+  --ink-soft:   #46534d;
+  --paper:      #f7f4ee;   /* warm off-white */
+  --card:       #ffffff;
+  --spruce:     #2e5d4e;   /* primary brand green */
+  --spruce-dk:  #234939;
+  --spruce-tint:#e7efeb;
+  --amber:      #c9922f;   /* accent — badges, highlights */
+  --amber-soft: #f6ead2;
+  --line:       #e4ded2;
+  --danger:     #b4552e;
+  --radius: 14px;
+  --shadow: 0 2px 8px rgba(28,39,35,.07), 0 12px 32px rgba(28,39,35,.07);
+  --font-head: "Fraunces", Georgia, serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+body{
+  font-family:var(--font-body);
+  color:var(--ink);
+  background:var(--paper);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:var(--spruce)}
+h1,h2,h3{font-family:var(--font-head);line-height:1.15;letter-spacing:-.01em}
+h2{font-size:clamp(1.6rem,4.5vw,2.3rem);margin-bottom:.4rem}
+.section{padding:3.5rem 1.25rem}
+.wrap{max-width:1060px;margin:0 auto}
+.kicker{
+  display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--spruce);margin-bottom:.5rem;
+}
+.section-sub{color:var(--ink-soft);max-width:38rem;margin-bottom:2rem}
+.btn{
+  display:inline-block;border:0;cursor:pointer;text-decoration:none;text-align:center;
+  font:600 1rem var(--font-body);border-radius:999px;padding:.85rem 1.7rem;
+  transition:transform .12s ease, box-shadow .12s ease, background .12s ease;
+}
+.btn:active{transform:scale(.98)}
+.btn-primary{background:var(--spruce);color:#fff;box-shadow:0 4px 14px rgba(46,93,78,.35)}
+.btn-primary:hover{background:var(--spruce-dk)}
+.btn-ghost{background:transparent;color:var(--spruce);box-shadow:inset 0 0 0 2px var(--spruce)}
+.btn-ghost:hover{background:var(--spruce-tint)}
+.btn-amber{background:var(--amber);color:#fff}
+.btn-amber:hover{filter:brightness(.94)}
+:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+
+/* ============ HEADER ============ */
+.site-header{
+  position:sticky;top:0;z-index:50;background:rgba(247,244,238,.92);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line);
+}
+.header-inner{
+  max-width:1060px;margin:0 auto;padding:.7rem 1.25rem;
+  display:flex;align-items:center;gap:1rem;justify-content:space-between;
+}
+.logo{font-family:var(--font-head);font-weight:700;font-size:1.15rem;color:var(--ink);text-decoration:none;white-space:nowrap}
+.logo .leaf{color:var(--spruce)}
+.main-nav{display:flex;gap:.25rem;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.main-nav::-webkit-scrollbar{display:none}
+.main-nav a{
+  color:var(--ink-soft);text-decoration:none;font-size:.9rem;font-weight:600;
+  padding:.4rem .7rem;border-radius:999px;white-space:nowrap;
+}
+.main-nav a:hover{background:var(--spruce-tint);color:var(--spruce)}
+.header-cta{display:none}
+@media(min-width:760px){.header-cta{display:inline-block;padding:.55rem 1.2rem;font-size:.9rem}}
+
+/* ============ HERO ============ */
+.hero{background:linear-gradient(175deg,var(--ink) 0%, #24352e 60%, var(--spruce-dk) 100%);color:#f2efe8;padding:4rem 1.25rem 4.5rem}
+.hero .wrap{display:grid;gap:2.2rem}
+@media(min-width:860px){.hero .wrap{grid-template-columns:1.1fr .9fr;align-items:center}}
+.hero h1{font-size:clamp(2.1rem,6.5vw,3.3rem);margin-bottom:1rem;color:#fff}
+.hero h1 em{font-style:normal;color:var(--amber)}
+.hero p{color:#cfd8d2;max-width:32rem;font-size:1.05rem}
+.hero-ctas{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.6rem}
+.hero-points{list-style:none;display:grid;gap:.9rem;margin-top:.5rem}
+.hero-points li{
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
+  border-radius:var(--radius);padding:.9rem 1.1rem;display:flex;gap:.75rem;align-items:flex-start;
+}
+.hero-points .pt-icon{flex:0 0 auto;width:2rem;height:2rem;border-radius:50%;background:var(--amber);color:var(--ink);display:grid;place-items:center;font-size:1rem}
+.hero-points b{display:block;color:#fff}
+.hero-points span{font-size:.88rem;color:#cfd8d2}
+
+/* ============ QUOTE BUILDER ============ */
+.quote-card{
+  background:var(--card);border-radius:20px;box-shadow:var(--shadow);
+  padding:1.5rem 1.25rem;border:1px solid var(--line);
+}
+@media(min-width:860px){
+  .quote-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:2rem;align-items:start}
+  .quote-card{padding:2rem}
+}
+.qb-step{margin-bottom:1.6rem}
+.qb-step-label{font-weight:700;font-size:.95rem;margin-bottom:.6rem;display:flex;align-items:center;gap:.5rem}
+.qb-step-num{
+  width:1.5rem;height:1.5rem;border-radius:50%;background:var(--spruce);color:#fff;
+  display:inline-grid;place-items:center;font-size:.78rem;flex:0 0 auto;
+}
+.pill-group{display:flex;flex-wrap:wrap;gap:.5rem}
+.pill{
+  position:relative;cursor:pointer;user-select:none;
+}
+.pill input{position:absolute;opacity:0;pointer-events:none}
+.pill span{
+  display:inline-block;padding:.55rem 1rem;border-radius:999px;border:2px solid var(--line);
+  font-size:.9rem;font-weight:600;color:var(--ink-soft);background:#fff;transition:all .12s ease;
+}
+.pill input:checked + span{border-color:var(--spruce);background:var(--spruce-tint);color:var(--spruce-dk)}
+.pill input:focus-visible + span{outline:3px solid var(--amber);outline-offset:2px}
+.pill small{display:block;font-weight:500;font-size:.75rem;opacity:.75}
+.addon-row{
+  display:flex;align-items:center;gap:.7rem;padding:.65rem .4rem;border-bottom:1px solid var(--line);
+  cursor:pointer;user-select:none;
+}
+.addon-row:last-child{border-bottom:0}
+.addon-row input{width:1.15rem;height:1.15rem;accent-color:var(--spruce);flex:0 0 auto}
+.addon-row .addon-name{flex:1;font-size:.92rem;font-weight:500}
+.addon-row .addon-price{font-weight:700;font-size:.9rem;color:var(--spruce)}
+.quote-summary{
+  background:var(--ink);color:#f2efe8;border-radius:16px;padding:1.4rem;position:sticky;top:5rem;
+}
+.quote-summary h3{color:#fff;font-size:1.15rem;margin-bottom:.8rem}
+.qs-lines{list-style:none;font-size:.9rem;display:grid;gap:.35rem;margin-bottom:1rem;min-height:4.4rem}
+.qs-lines li{display:flex;justify-content:space-between;gap:1rem;color:#cfd8d2}
+.qs-lines li span:last-child{color:#fff;font-variant-numeric:tabular-nums}
+.qs-total{
+  display:flex;justify-content:space-between;align-items:baseline;
+  border-top:1px solid rgba(255,255,255,.2);padding-top:.9rem;margin-bottom:.35rem;
+}
+.qs-total .amount{font-family:var(--font-head);font-size:2.1rem;font-weight:700;color:#fff;font-variant-numeric:tabular-nums}
+.qs-member-hint{font-size:.82rem;color:var(--amber);margin-bottom:1rem}
+.qs-member-hint a{color:var(--amber)}
+.qs-note{font-size:.75rem;color:#9fb0a8;margin-top:.8rem}
+.quote-summary .btn{width:100%}
+
+/* ============ PLANS ============ */
+.plans-section{background:var(--spruce-tint)}
+.billing-toggle{
+  display:inline-flex;background:#fff;border:1px solid var(--line);border-radius:999px;
+  padding:.28rem;margin:0 0 2rem;gap:.25rem;
+}
+.billing-toggle button{
+  border:0;background:transparent;font:600 .9rem var(--font-body);color:var(--ink-soft);
+  padding:.5rem 1.1rem;border-radius:999px;cursor:pointer;transition:all .15s ease;
+}
+.billing-toggle button[aria-pressed="true"]{background:var(--spruce);color:#fff}
+.billing-toggle .save-tag{font-size:.72rem;color:var(--amber);font-weight:700}
+.billing-toggle button[aria-pressed="true"] .save-tag{color:var(--amber-soft)}
+.plan-cards{display:grid;gap:1.2rem}
+@media(min-width:860px){.plan-cards{grid-template-columns:repeat(3,1fr);align-items:stretch}}
+.plan-card{
+  background:var(--card);border-radius:var(--radius);border:1px solid var(--line);
+  padding:1.6rem 1.4rem;position:relative;display:flex;flex-direction:column;box-shadow:var(--shadow);
+}
+.plan-card.popular{border:2px solid var(--spruce);box-shadow:0 8px 30px rgba(46,93,78,.18)}
+.plan-flag{
+  position:absolute;top:-.8rem;left:50%;transform:translateX(-50%);
+  background:var(--spruce);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;padding:.3rem .9rem;border-radius:999px;white-space:nowrap;
+}
+.plan-card h3{font-size:1.25rem;margin-bottom:.15rem}
+.plan-cadence{font-size:.82rem;color:var(--ink-soft);font-weight:600;margin-bottom:1rem}
+.plan-price{display:flex;align-items:baseline;gap:.45rem;margin-bottom:.2rem;flex-wrap:wrap}
+.plan-price .now{font-family:var(--font-head);font-size:2rem;font-weight:700;font-variant-numeric:tabular-nums}
+.plan-price .was{color:var(--ink-soft);text-decoration:line-through;font-size:1rem;font-variant-numeric:tabular-nums}
+.plan-price .per{color:var(--ink-soft);font-size:.85rem}
+.save-badge{
+  display:inline-block;background:var(--amber-soft);color:#8a6210;font-size:.75rem;font-weight:700;
+  border-radius:999px;padding:.2rem .7rem;margin-bottom:1rem;min-height:1.6rem;
+}
+.save-badge:empty{visibility:hidden}
+.plan-feats{list-style:none;display:grid;gap:.5rem;font-size:.9rem;margin-bottom:1.4rem;flex:1}
+.plan-feats li{display:flex;gap:.5rem;align-items:flex-start}
+.plan-feats li::before{content:"✓";color:var(--spruce);font-weight:700;flex:0 0 auto}
+.plan-fineprint{text-align:center;font-size:.8rem;color:var(--ink-soft);margin-top:1.4rem}
+
+/* ============ SERVICES ============ */
+.svc-grid{display:grid;gap:1rem}
+@media(min-width:700px){.svc-grid{grid-template-columns:1fr 1fr}}
+.svc{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:1.3rem 1.4rem;display:flex;justify-content:space-between;gap:1rem;align-items:flex-start;
+}
+.svc h3{font-size:1.05rem;margin-bottom:.25rem}
+.svc p{font-size:.88rem;color:var(--ink-soft)}
+.svc .svc-price{font-weight:700;color:var(--spruce);white-space:nowrap;font-variant-numeric:tabular-nums}
+
+/* ============ BEFORE / AFTER ============ */
+.ba-grid{display:grid;gap:1.5rem}
+@media(min-width:860px){.ba-grid{grid-template-columns:repeat(3,1fr)}}
+.ba-figure{margin:0}
+.ba-slider{
+  position:relative;border-radius:var(--radius);overflow:hidden;aspect-ratio:4/3;
+  box-shadow:var(--shadow);touch-action:pan-y;background:#ddd;
+}
+.ba-slider img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.ba-after-wrap{position:absolute;inset:0;overflow:hidden;width:50%}
+.ba-after-wrap img{width:auto;height:100%}
+.ba-divider{
+  position:absolute;top:0;bottom:0;width:3px;background:#fff;left:50%;transform:translateX(-50%);
+  pointer-events:none;box-shadow:0 0 8px rgba(0,0,0,.35);
+}
+.ba-divider::after{
+  content:"◂ ▸";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  background:#fff;color:var(--ink);border-radius:999px;width:2.4rem;height:2.4rem;
+  display:grid;place-items:center;font-size:.7rem;letter-spacing:-.05em;
+  box-shadow:0 2px 8px rgba(0,0,0,.3);
+}
+.ba-range{
+  position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0;
+  -webkit-appearance:none;appearance:none;
+}
+.ba-tag{
+  position:absolute;top:.7rem;font-size:.68rem;font-weight:700;letter-spacing:.08em;
+  background:rgba(28,39,35,.75);color:#fff;padding:.25rem .6rem;border-radius:999px;pointer-events:none;
+}
+.ba-tag.before{right:.7rem}
+.ba-tag.after{left:.7rem}
+.ba-figure figcaption{font-size:.85rem;color:var(--ink-soft);margin-top:.6rem;text-align:center}
+
+/* ============ RETENTION (due widget + loyalty) ============ */
+.retain-grid{display:grid;gap:1.5rem}
+@media(min-width:860px){.retain-grid{grid-template-columns:1fr 1fr;align-items:stretch}}
+.retain-card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:1.7rem 1.5rem;box-shadow:var(--shadow);display:flex;flex-direction:column;
+}
+.retain-card h3{font-size:1.25rem;margin-bottom:.4rem}
+.retain-card > p{font-size:.92rem;color:var(--ink-soft);margin-bottom:1.2rem}
+.due-input-row{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;margin-bottom:1.2rem}
+.due-input-row label{font-size:.88rem;font-weight:600}
+.due-input-row input[type="date"]{
+  font:500 .95rem var(--font-body);padding:.55rem .8rem;border:2px solid var(--line);
+  border-radius:10px;background:#fff;color:var(--ink);
+}
+.due-meter{height:.85rem;border-radius:999px;background:var(--spruce-tint);overflow:hidden;margin-bottom:.5rem}
+.due-meter-fill{
+  height:100%;width:0%;border-radius:999px;background:var(--spruce);
+  transition:width .5s ease, background .5s ease;
+}
+.due-meter-fill.warn{background:var(--amber)}
+.due-meter-fill.late{background:var(--danger)}
+.due-scale{display:flex;justify-content:space-between;font-size:.72rem;color:var(--ink-soft);margin-bottom:1rem}
+.due-status{font-size:.95rem;font-weight:600;min-height:3rem;margin-bottom:1rem}
+.due-status .due-cta-word{color:var(--danger)}
+.punch-row{display:flex;gap:.6rem;justify-content:center;margin:1rem 0 1.2rem;flex-wrap:wrap}
+.punch{
+  width:3rem;height:3rem;border-radius:50%;border:2px dashed var(--line);background:#fff;
+  display:grid;place-items:center;font-size:1.2rem;cursor:pointer;transition:all .15s ease;color:transparent;
+}
+.punch.filled{border-style:solid;border-color:var(--spruce);background:var(--spruce-tint);color:var(--spruce)}
+.punch.reward{border-color:var(--amber);width:3.4rem;height:3.4rem;font-size:1.4rem}
+.punch.reward.filled{background:var(--amber-soft);color:var(--amber)}
+.loyalty-note{font-size:.85rem;color:var(--ink-soft);text-align:center;min-height:2.6rem;margin-bottom:.8rem}
+.retain-card .btn{margin-top:auto}
+
+/* ============ REFERRAL ============ */
+.referral-band{background:linear-gradient(135deg,var(--spruce-dk),var(--spruce));color:#f2efe8}
+.referral-inner{display:grid;gap:1.6rem;max-width:1060px;margin:0 auto}
+@media(min-width:860px){.referral-inner{grid-template-columns:1.2fr .8fr;align-items:center}}
+.referral-band h2{color:#fff}
+.referral-band p{color:#d5e0da;max-width:34rem}
+.referral-amount{color:var(--amber);font-weight:700}
+.referral-card{
+  background:#fff;color:var(--ink);border-radius:var(--radius);padding:1.6rem;box-shadow:0 12px 40px rgba(0,0,0,.25);
+}
+.referral-card h3{font-size:1.1rem;margin-bottom:.6rem}
+.referral-msg{
+  font-size:.88rem;background:var(--paper);border:1px dashed var(--line);border-radius:10px;
+  padding:.9rem;margin-bottom:1rem;color:var(--ink);
+}
+.referral-card .btn{width:100%}
+.copy-done{font-size:.85rem;font-weight:600;color:var(--spruce);text-align:center;margin-top:.6rem;min-height:1.3rem}
+
+/* ============ SERVICE AREA ============ */
+.area-grid{display:grid;gap:2rem}
+@media(min-width:860px){.area-grid{grid-template-columns:1fr 1fr;align-items:center}}
+.radius-map{max-width:22rem;margin:0 auto;width:100%}
+.town-chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.2rem}
+.town-chips span{
+  background:var(--card);border:1px solid var(--line);border-radius:999px;
+  padding:.35rem .85rem;font-size:.85rem;font-weight:600;color:var(--ink-soft);
+}
+.area-note{margin-top:1.2rem;font-size:.9rem;color:var(--ink-soft)}
+
+/* ============ TESTIMONIALS ============ */
+.testi-grid{display:grid;gap:1.2rem}
+@media(min-width:860px){.testi-grid{grid-template-columns:repeat(3,1fr)}}
+.testi{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:1.5rem;box-shadow:var(--shadow);
+}
+.testi .stars{color:var(--amber);letter-spacing:.15em;margin-bottom:.7rem;font-size:.9rem}
+.testi blockquote{font-size:.95rem;margin-bottom:1rem}
+.testi cite{font-style:normal;font-weight:700;font-size:.85rem}
+.testi cite small{display:block;font-weight:500;color:var(--ink-soft)}
+
+/* ============ CONTACT ============ */
+.contact-section{background:var(--ink);color:#f2efe8}
+.contact-section h2, .contact-section h3{color:#fff}
+.contact-section .section-sub{color:#b9c6c0}
+.contact-grid{display:grid;gap:2.2rem}
+@media(min-width:860px){.contact-grid{grid-template-columns:.8fr 1.2fr}}
+.contact-info{display:grid;gap:1.1rem;align-content:start}
+.contact-info a{color:var(--amber);font-weight:600;text-decoration:none}
+.contact-info .ci-label{font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;color:#9fb0a8;display:block}
+.booking-form{display:grid;gap:1rem}
+@media(min-width:560px){.booking-form{grid-template-columns:1fr 1fr}}
+.booking-form .full{grid-column:1/-1}
+.field label{display:block;font-size:.85rem;font-weight:600;margin-bottom:.35rem;color:#dfe7e2}
+.field input,.field select,.field textarea{
+  width:100%;font:500 .95rem var(--font-body);padding:.75rem .9rem;border-radius:10px;
+  border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.07);color:#fff;
+}
+.field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23cfd8d2' stroke-width='2' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .9rem center}
+.field select option{color:var(--ink);background:#fff}
+.field input::placeholder,.field textarea::placeholder{color:#8fa19a}
+.field textarea{min-height:7rem;resize:vertical}
+.form-note{grid-column:1/-1;font-size:.8rem;color:#9fb0a8}
+
+/* ============ FOOTER ============ */
+.site-footer{background:#141c18;color:#8fa19a;padding:2rem 1.25rem;font-size:.85rem}
+.site-footer .wrap{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center}
+.site-footer a{color:#cfd8d2;text-decoration:none}
+
+.sr-only{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0 0 0 0);white-space:nowrap;border:0;
+}
+</style>
 </head>
 <body>
-  <h1>Fresh Start Mobile Detailing</h1>
-  <p>Site coming soon.</p>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="#top">Fresh<span class="leaf">Start</span> Mobile Detailing</a>
+    <nav class="main-nav" aria-label="Main">
+      <a href="#quote">Get a Quote</a>
+      <a href="#plans">Plans</a>
+      <a href="#services">Services</a>
+      <a href="#results">Results</a>
+      <a href="#contact">Book Now</a>
+    </nav>
+    <a class="btn btn-primary header-cta" href="#quote">Build my quote</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <h1>Showroom-clean, <em>in your own driveway.</em></h1>
+      <p>Fresh Start brings professional interior &amp; exterior detailing to your home or workplace — serving Evansville, Madison, and the surrounding area. No drop-offs, no waiting rooms. You keep your day; your car gets a fresh start.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-amber" href="#quote">Build your quote</a>
+        <a class="btn btn-ghost" style="color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.6)" href="#plans">See maintenance plans</a>
+      </div>
+    </div>
+    <ul class="hero-points">
+      <li><span class="pt-icon">🚐</span><div><b>We come to you</b><span>Driveway, office lot, or apartment — fully mobile setup with water &amp; power on board.</span></div></li>
+      <li><span class="pt-icon">🛡️</span><div><b>Insured &amp; careful</b><span>Trusted local service. Your paint, leather, and trim treated like our own.</span></div></li>
+      <li><span class="pt-icon">🔁</span><div><b>Stay-clean plans</b><span>Members save on every visit — we keep your car detailed on a schedule so it never gets bad again.</span></div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= QUOTE BUILDER (centerpiece) ================= -->
+<section class="section" id="quote">
+  <div class="wrap">
+    <span class="kicker">Instant estimate</span>
+    <h2>Build your quote in 20 seconds</h2>
+    <p class="section-sub">Pick your vehicle and service — the price updates as you go. No email required, no phone tag.</p>
+
+    <div class="quote-card">
+      <div class="quote-grid">
+        <div>
+          <fieldset class="qb-step" style="border:0">
+            <legend class="qb-step-label"><span class="qb-step-num">1</span> Vehicle size</legend>
+            <div class="pill-group" id="qb-sizes"><!-- built by JS --></div>
+          </fieldset>
+
+          <fieldset class="qb-step" style="border:0">
+            <legend class="qb-step-label"><span class="qb-step-num">2</span> Service package</legend>
+            <div class="pill-group" id="qb-packages"><!-- built by JS --></div>
+          </fieldset>
+
+          <fieldset class="qb-step" style="border:0">
+            <legend class="qb-step-label"><span class="qb-step-num">3</span> Add-ons <span style="font-weight:500;color:var(--ink-soft);font-size:.82rem">(optional)</span></legend>
+            <div id="qb-addons"><!-- built by JS --></div>
+          </fieldset>
+        </div>
+
+        <aside class="quote-summary" aria-live="polite">
+          <h3>Your estimate</h3>
+          <ul class="qs-lines" id="qs-lines"></ul>
+          <div class="qs-total"><span>Total</span><span class="amount" id="qs-total">$0</span></div>
+          <p class="qs-member-hint" id="qs-member-hint"></p>
+          <a class="btn btn-amber" id="qs-book-btn" href="#contact">Book this service →</a>
+          <p class="qs-note">Estimate only — final price confirmed before we start. Heavily soiled vehicles may need a small surcharge, always discussed first.</p>
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MEMBERSHIP PLANS ================= -->
+<section class="section plans-section" id="plans">
+  <div class="wrap">
+    <span class="kicker">Stay-clean plans</span>
+    <h2>One deep clean is nice. A car that's <span style="white-space:nowrap">always clean</span> is better.</h2>
+    <p class="section-sub">Most of our customers switch to a plan after their first detail — we come back on a schedule, you save on every visit, and your car never gets to "embarrassing" again.</p>
+
+    <div class="billing-toggle" role="group" aria-label="Pricing mode">
+      <button type="button" id="toggle-onetime" aria-pressed="false">One-time visit</button>
+      <button type="button" id="toggle-member" aria-pressed="true">Plan member <span class="save-tag">save up to 20%</span></button>
+    </div>
+
+    <div class="plan-cards" id="plan-cards"><!-- built by JS --></div>
+    <p class="plan-fineprint">Plans are month-to-month — pause or cancel anytime with a text. No contracts, no cancellation fees.</p>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section class="section" id="services">
+  <div class="wrap">
+    <span class="kicker">Services</span>
+    <h2>What we offer</h2>
+    <p class="section-sub">Every service is performed at your location. Starting prices shown for sedans — use the <a href="#quote">quote builder</a> for your exact vehicle.</p>
+    <div class="svc-grid" id="svc-grid"><!-- built by JS from PRICING --></div>
+  </div>
+</section>
+
+<!-- ================= BEFORE / AFTER ================= -->
+<section class="section" id="results">
+  <div class="wrap">
+    <span class="kicker">Real results</span>
+    <h2>Drag to see the difference</h2>
+    <p class="section-sub">Slide the handle to compare before and after. These are placeholder graphics — real photos coming from recent jobs.</p>
+
+    <div class="ba-grid">
+      <!-- EDIT: PHOTOS — replace each pair of src values with real before/after
+           images (same dimensions per pair, e.g. photos/seat-before.jpg).
+           "before" img = left/full, "after" img = inside .ba-after-wrap. -->
+      <figure class="ba-figure">
+        <div class="ba-slider" data-ba>
+          <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%236b5d4f'/%3E%3Cellipse cx='140' cy='120' rx='60' ry='30' fill='%23594c3e'/%3E%3Cellipse cx='280' cy='200' rx='70' ry='35' fill='%23524537'/%3E%3Cellipse cx='90' cy='230' rx='40' ry='20' fill='%23473b2e'/%3E%3Ctext x='200' y='158' text-anchor='middle' font-family='sans-serif' font-size='26' fill='%23cbbfae'%3EBEFORE photo%3C/text%3E%3C/svg%3E" alt="Interior before detailing (placeholder)">
+          <div class="ba-after-wrap">
+            <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%232e5d4e'/%3E%3Cellipse cx='200' cy='90' rx='120' ry='18' fill='%233b6e5e' opacity='.6'/%3E%3Ctext x='200' y='158' text-anchor='middle' font-family='sans-serif' font-size='26' fill='%23dff0e9'%3EAFTER photo%3C/text%3E%3C/svg%3E" alt="Interior after detailing (placeholder)">
+          </div>
+          <div class="ba-divider"></div>
+          <span class="ba-tag after">AFTER</span>
+          <span class="ba-tag before">BEFORE</span>
+          <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Compare before and after: interior seats">
+        </div>
+        <figcaption>Back-seat rescue — crumbs, stains &amp; pet hair, gone.</figcaption>
+      </figure>
+
+      <figure class="ba-figure">
+        <div class="ba-slider" data-ba>
+          <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23707070'/%3E%3Ccircle cx='100' cy='100' r='30' fill='%23606060'/%3E%3Ccircle cx='300' cy='180' r='45' fill='%23585858'/%3E%3Ccircle cx='180' cy='240' r='25' fill='%23505050'/%3E%3Ctext x='200' y='158' text-anchor='middle' font-family='sans-serif' font-size='26' fill='%23d4d4d4'%3EBEFORE photo%3C/text%3E%3C/svg%3E" alt="Paint before detailing (placeholder)">
+          <div class="ba-after-wrap">
+            <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23234939'/%3E%3Cpath d='M0 60 L400 20 L400 50 L0 90 Z' fill='%23ffffff' opacity='.25'/%3E%3Ctext x='200' y='158' text-anchor='middle' font-family='sans-serif' font-size='26' fill='%23dff0e9'%3EAFTER photo%3C/text%3E%3C/svg%3E" alt="Paint after detailing (placeholder)">
+          </div>
+          <div class="ba-divider"></div>
+          <span class="ba-tag after">AFTER</span>
+          <span class="ba-tag before">BEFORE</span>
+          <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Compare before and after: exterior paint">
+        </div>
+        <figcaption>Full exterior decon + hand wax — that mirror gloss.</figcaption>
+      </figure>
+
+      <figure class="ba-figure">
+        <div class="ba-slider" data-ba>
+          <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%235c5346'/%3E%3Crect x='40' y='60' width='320' height='180' rx='12' fill='%234e463a'/%3E%3Cellipse cx='150' cy='150' rx='50' ry='24' fill='%23453d31'/%3E%3Ctext x='200' y='158' text-anchor='middle' font-family='sans-serif' font-size='26' fill='%23cbbfae'%3EBEFORE photo%3C/text%3E%3C/svg%3E" alt="Carpet before detailing (placeholder)">
+          <div class="ba-after-wrap">
+            <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23355e50'/%3E%3Crect x='40' y='60' width='320' height='180' rx='12' fill='%232e5d4e'/%3E%3Ctext x='200' y='158' text-anchor='middle' font-family='sans-serif' font-size='26' fill='%23dff0e9'%3EAFTER photo%3C/text%3E%3C/svg%3E" alt="Carpet after detailing (placeholder)">
+          </div>
+          <div class="ba-divider"></div>
+          <span class="ba-tag after">AFTER</span>
+          <span class="ba-tag before">BEFORE</span>
+          <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Compare before and after: carpet shampoo">
+        </div>
+        <figcaption>Carpet extraction — years of Wisconsin winters lifted out.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= RETENTION: DUE WIDGET + LOYALTY ================= -->
+<section class="section" id="keep-it-fresh">
+  <div class="wrap">
+    <span class="kicker">Keep it fresh</span>
+    <h2>Is your car due?</h2>
+    <p class="section-sub">A detail isn't a once-a-year event — most cars need attention every 4–8 weeks to stay ahead of grime, salt, and wear. Check where yours stands.</p>
+
+    <div class="retain-grid">
+      <!-- Maintenance-due checker -->
+      <div class="retain-card">
+        <h3>🗓️ Maintenance check</h3>
+        <p>Tell us when your car was last detailed and we'll tell you where it is in the clean-cycle.</p>
+        <div class="due-input-row">
+          <label for="last-detail-date">Last detailed on</label>
+          <input type="date" id="last-detail-date">
+        </div>
+        <div class="due-meter" role="img" aria-hidden="true"><div class="due-meter-fill" id="due-fill"></div></div>
+        <div class="due-scale"><span>Fresh</span><span>4 wks</span><span>Due · 6 wks</span><span>8+ wks</span></div>
+        <p class="due-status" id="due-status">Pick a date above to check your car's status.</p>
+        <a class="btn btn-primary" id="due-book-btn" href="#contact">Schedule my next detail</a>
+      </div>
+
+      <!-- Loyalty punch card -->
+      <div class="retain-card">
+        <h3>⭐ Fresh Start rewards</h3>
+        <p>Every completed detail earns a punch. Your <b>6th service is a free maintenance wash</b> — on us. Tap the card to see how it fills up.</p>
+        <div class="punch-row" id="punch-row" role="group" aria-label="Loyalty punch card demo — tap punches to preview">
+          <button class="punch" type="button" aria-label="Punch 1">✓</button>
+          <button class="punch" type="button" aria-label="Punch 2">✓</button>
+          <button class="punch" type="button" aria-label="Punch 3">✓</button>
+          <button class="punch" type="button" aria-label="Punch 4">✓</button>
+          <button class="punch" type="button" aria-label="Punch 5">✓</button>
+          <button class="punch reward" type="button" aria-label="Reward: free maintenance wash">🎁</button>
+        </div>
+        <p class="loyalty-note" id="loyalty-note">This is a preview — we track your real punches for you. Just ask where you stand at your next appointment.</p>
+        <a class="btn btn-ghost" href="#contact">Start earning — book a detail</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= REFERRAL ================= -->
+<section class="section referral-band" id="referral">
+  <div class="referral-inner">
+    <div>
+      <span class="kicker" style="color:var(--amber)">Refer a friend</span>
+      <h2>Good friends don't let friends drive dirty cars.</h2>
+      <p>Tell a friend about Fresh Start. When they book their first detail and mention your name, <span class="referral-amount">you each get $20 off</span> your next service. No codes, no apps — we just write it down.</p>
+    </div>
+    <div class="referral-card">
+      <h3>Send this to a friend 👇</h3>
+      <p class="referral-msg" id="referral-msg">Hey! I use Fresh Start Mobile Detailing — they come to your driveway and detail your car on the spot (Evansville/Madison area). Mention my name when you book and we both get $20 off: https://cpeleck.github.io/freshstart-detailing/</p>
+      <button class="btn btn-primary" type="button" id="copy-referral">Copy message</button>
+      <p class="copy-done" id="copy-done" aria-live="polite"></p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICE AREA ================= -->
+<section class="section" id="area">
+  <div class="wrap area-grid">
+    <div>
+      <span class="kicker">Where we go</span>
+      <h2>Based in Evansville, serving the greater Madison area</h2>
+      <p class="section-sub" style="margin-bottom:0">If you're within about 30 miles of Evansville, WI, we'll come to you — home driveways, office parking lots, apartment complexes. A little farther out? Ask — we can usually make it work with a small travel fee.</p>
+      <div class="town-chips" aria-label="Towns we serve">
+        <span>Evansville</span><span>Madison</span><span>Fitchburg</span><span>Verona</span>
+        <span>Oregon</span><span>Stoughton</span><span>Brooklyn</span><span>Edgerton</span>
+        <span>Janesville</span><span>McFarland</span><span>Monona</span><span>Albany</span>
+      </div>
+      <p class="area-note">All we need on-site is room to park next to your vehicle. Water and power are on board.</p>
+    </div>
+    <svg class="radius-map" viewBox="0 0 340 340" role="img" aria-label="Service radius map: Evansville center, roughly 30 miles reaching Madison and Janesville">
+      <circle cx="170" cy="170" r="160" fill="#2e5d4e" opacity=".08"/>
+      <circle cx="170" cy="170" r="160" fill="none" stroke="#2e5d4e" stroke-width="2" stroke-dasharray="6 6"/>
+      <circle cx="170" cy="170" r="95" fill="#2e5d4e" opacity=".10"/>
+      <circle cx="170" cy="170" r="95" fill="none" stroke="#2e5d4e" stroke-width="1.5" stroke-dasharray="4 5"/>
+      <circle cx="170" cy="170" r="7" fill="#c9922f"/>
+      <text x="170" y="196" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="700" fill="#1c2723">Evansville</text>
+      <circle cx="140" cy="62" r="5" fill="#2e5d4e"/>
+      <text x="140" y="48" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#46534d">Madison</text>
+      <circle cx="128" cy="102" r="4" fill="#2e5d4e"/>
+      <text x="94" y="106" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#46534d">Verona</text>
+      <circle cx="188" cy="98" r="4" fill="#2e5d4e"/>
+      <text x="222" y="94" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#46534d">Stoughton</text>
+      <circle cx="164" cy="122" r="4" fill="#2e5d4e"/>
+      <text x="150" y="140" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#46534d">Oregon</text>
+      <circle cx="232" cy="238" r="5" fill="#2e5d4e"/>
+      <text x="232" y="260" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#46534d">Janesville</text>
+      <circle cx="112" cy="222" r="4" fill="#2e5d4e"/>
+      <text x="100" y="242" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#46534d">Albany</text>
+      <text x="170" y="322" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#46534d">≈ 30-mile service radius</text>
+    </svg>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section class="section" id="reviews" style="padding-top:0">
+  <div class="wrap">
+    <span class="kicker">Word of mouth</span>
+    <h2>What neighbors are saying</h2>
+    <p class="section-sub">Placeholder reviews — real ones will replace these as they come in.</p>
+    <div class="testi-grid">
+      <!-- EDIT: QUOTES — swap these three placeholder testimonials for real ones -->
+      <div class="testi">
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote>"He detailed my SUV in my work parking lot while I was in meetings. Walked out to a brand-new car. On the monthly plan now."</blockquote>
+        <cite>Placeholder Name <small>Madison · Full Detail + plan member</small></cite>
+      </div>
+      <div class="testi">
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote>"Two kids, one dog, endless crumbs. I genuinely didn't think the back seat was saveable. It was. Booking every 6 weeks from now on."</blockquote>
+        <cite>Placeholder Name <small>Evansville · Interior Detail</small></cite>
+      </div>
+      <div class="testi">
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote>"Showed up on time, brought everything with him, and the paint looks better than when I bought the truck. Fair price, zero hassle."</blockquote>
+        <cite>Placeholder Name <small>Janesville · Exterior Detail</small></cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT / BOOKING ================= -->
+<section class="section contact-section" id="contact">
+  <div class="wrap">
+    <span class="kicker" style="color:var(--amber)">Book your detail</span>
+    <h2>Ready for a fresh start?</h2>
+    <p class="section-sub">Send the form and we'll text you back — usually same day — to confirm a time. Prefer to talk? Call or text directly.</p>
+
+    <div class="contact-grid">
+      <div class="contact-info">
+        <!-- EDIT: CONTACT — replace phone + email with your real ones (also in footer) -->
+        <div><span class="ci-label">Call or text</span><a href="tel:+16085550123">(608) 555-0123</a></div>
+        <div><span class="ci-label">Email</span><a href="mailto:hello@example.com">hello@example.com</a></div>
+        <div><span class="ci-label">Hours</span>Mon–Sat, 8am–6pm</div>
+        <div><span class="ci-label">Service area</span>Evansville · Madison · within ~30 mi</div>
+      </div>
+
+      <!-- EDIT: FORMSPREE — create a free form at https://formspree.io, then
+           replace YOUR_FORM_ID below with the id they give you (e.g. xdorwzab).
+           Until you do, submissions go nowhere. -->
+      <form class="booking-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="booking-form">
+        <div class="field">
+          <label for="f-name">Name</label>
+          <input id="f-name" name="name" type="text" required autocomplete="name" placeholder="Your name">
+        </div>
+        <div class="field">
+          <label for="f-phone">Phone</label>
+          <input id="f-phone" name="phone" type="tel" required autocomplete="tel" placeholder="(608) 555-0123">
+        </div>
+        <div class="field">
+          <label for="f-email">Email</label>
+          <input id="f-email" name="email" type="email" autocomplete="email" placeholder="you@email.com">
+        </div>
+        <div class="field">
+          <label for="f-vehicle">Vehicle</label>
+          <input id="f-vehicle" name="vehicle" type="text" placeholder="e.g. 2019 Honda CR-V">
+        </div>
+        <div class="field">
+          <label for="f-service">Interested in</label>
+          <select id="f-service" name="service">
+            <option>Full Detail</option>
+            <option>Interior Detail</option>
+            <option>Exterior Detail</option>
+            <option>Maintenance Wash</option>
+            <option>Ceramic Coating</option>
+            <option>A recurring plan</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-date">Preferred date</label>
+          <input id="f-date" name="preferred_date" type="date">
+        </div>
+        <div class="field full">
+          <label for="f-msg">Anything else?</label>
+          <textarea id="f-msg" name="message" placeholder="Address or town, condition of the car, pet hair, referral name, questions…"></textarea>
+        </div>
+        <p class="form-note">This form is powered by a free form service (no account needed on your end). We'll never share your info.</p>
+        <div class="full"><button class="btn btn-amber" type="submit" style="width:100%">Request my booking</button></div>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© <span id="year"></span> Fresh Start Mobile Detailing · Evansville, WI</span>
+    <span><a href="tel:+16085550123">(608) 555-0123</a> · <a href="#quote">Get a quote</a></span>
+  </div>
+</footer>
+
+<script>
+/* =====================================================================
+   EDIT: PRICING — every price on the page comes from this one object.
+   Change numbers here and the quote builder, plans section, and
+   services list all update together.
+===================================================================== */
+const PRICING = {
+  sizes: {
+    sedan: { label: "Sedan / Coupe",            adder: 0  },
+    suv:   { label: "SUV / Crossover / Minivan", adder: 30 },
+    large: { label: "Truck / Large SUV",         adder: 50 },
+  },
+  packages: {
+    maintenance: {
+      label: "Maintenance Wash", base: 59,
+      desc: "Exterior hand wash, wheels & tires, interior vacuum + wipe-down. The 'keep it nice' visit.",
+    },
+    exterior: {
+      label: "Exterior Detail", base: 109,
+      desc: "Foam wash, bug & tar removal, wheels deep-cleaned, tire shine, hand-applied sealant.",
+    },
+    interior: {
+      label: "Interior Detail", base: 149,
+      desc: "Full vacuum, carpet & seat shampoo, leather cleaned & conditioned, glass, vents, door jambs.",
+    },
+    full: {
+      label: "Full Detail", base: 219,
+      desc: "The works — complete interior detail plus complete exterior detail in one visit.",
+    },
+    ceramic: {
+      label: "Ceramic Coating", base: 599,
+      desc: "Multi-year paint protection: decon, machine polish, professional-grade ceramic coat. By consultation.",
+      excludeFromBuilder: true, // shown in Services list, quoted in person
+    },
+  },
+  addons: {
+    pet:       { label: "Pet hair removal",        price: 40 },
+    engine:    { label: "Engine bay cleaning",     price: 35 },
+    headlight: { label: "Headlight restoration",   price: 50 },
+    ceramicSpray: { label: "Ceramic spray sealant (6-mo protection)", price: 45 },
+    odor:      { label: "Odor elimination treatment", price: 50 },
+  },
+  memberDiscount: 0.15, // hint shown under the quote total
+  plans: [
+    {
+      name: "Refresh",
+      cadence: "Every 8 weeks",
+      member: 69, onetime: 89,
+      feats: [
+        "Maintenance wash every visit",
+        "Interior vacuum + wipe-down",
+        "Priority scheduling",
+        "Loyalty punches count double",
+      ],
+    },
+    {
+      name: "Always Fresh",
+      cadence: "Every 4 weeks",
+      member: 119, onetime: 149,
+      popular: true,
+      feats: [
+        "Interior + exterior maintenance detail",
+        "Seat & carpet spot treatment",
+        "Sealant top-up every visit",
+        "Priority scheduling",
+        "One free add-on per quarter",
+      ],
+    },
+    {
+      name: "Showroom",
+      cadence: "Every 4 weeks",
+      member: 169, onetime: 209,
+      feats: [
+        "Everything in Always Fresh",
+        "Quarterly full detail included",
+        "Ceramic spray sealant each visit",
+        "Engine bay twice a year",
+      ],
+    },
+  ],
+};
+
+const fmt = n => "$" + n.toLocaleString("en-US");
+const $ = s => document.querySelector(s);
+
+/* ============ QUOTE BUILDER ============ */
+// All state lives in memory — nothing is stored on the visitor's device.
+const qb = { size: "sedan", pkg: "full", addons: new Set() };
+
+function buildQuoteBuilder() {
+  const sizeWrap = $("#qb-sizes");
+  Object.entries(PRICING.sizes).forEach(([key, s]) => {
+    sizeWrap.insertAdjacentHTML("beforeend", `
+      <label class="pill">
+        <input type="radio" name="qb-size" value="${key}" ${key === qb.size ? "checked" : ""}>
+        <span>${s.label}${s.adder ? `<small>+ ${fmt(s.adder)}</small>` : `<small>base price</small>`}</span>
+      </label>`);
+  });
+
+  const pkgWrap = $("#qb-packages");
+  Object.entries(PRICING.packages).forEach(([key, p]) => {
+    if (p.excludeFromBuilder) return;
+    pkgWrap.insertAdjacentHTML("beforeend", `
+      <label class="pill">
+        <input type="radio" name="qb-pkg" value="${key}" ${key === qb.pkg ? "checked" : ""}>
+        <span>${p.label}<small>from ${fmt(p.base)}</small></span>
+      </label>`);
+  });
+
+  const addonWrap = $("#qb-addons");
+  Object.entries(PRICING.addons).forEach(([key, a]) => {
+    addonWrap.insertAdjacentHTML("beforeend", `
+      <label class="addon-row">
+        <input type="checkbox" value="${key}">
+        <span class="addon-name">${a.label}</span>
+        <span class="addon-price">+ ${fmt(a.price)}</span>
+      </label>`);
+  });
+
+  sizeWrap.addEventListener("change", e => { qb.size = e.target.value; renderQuote(); });
+  pkgWrap.addEventListener("change", e => { qb.pkg = e.target.value; renderQuote(); });
+  addonWrap.addEventListener("change", e => {
+    e.target.checked ? qb.addons.add(e.target.value) : qb.addons.delete(e.target.value);
+    renderQuote();
+  });
+}
+
+function quoteTotal() {
+  const pkg = PRICING.packages[qb.pkg];
+  const size = PRICING.sizes[qb.size];
+  let total = pkg.base + size.adder;
+  qb.addons.forEach(k => total += PRICING.addons[k].price);
+  return total;
+}
+
+function renderQuote() {
+  const pkg = PRICING.packages[qb.pkg];
+  const size = PRICING.sizes[qb.size];
+  const lines = [
+    `<li><span>${pkg.label} — ${size.label}</span><span>${fmt(pkg.base + size.adder)}</span></li>`,
+    ...[...qb.addons].map(k =>
+      `<li><span>${PRICING.addons[k].label}</span><span>+ ${fmt(PRICING.addons[k].price)}</span></li>`),
+  ];
+  $("#qs-lines").innerHTML = lines.join("");
+  const total = quoteTotal();
+  $("#qs-total").textContent = fmt(total);
+  const memberPrice = Math.round(total * (1 - PRICING.memberDiscount));
+  $("#qs-member-hint").innerHTML =
+    `Plan members would pay about <b>${fmt(memberPrice)}</b> for this — <a href="#plans">see plans</a>`;
+}
+
+// "Book this" carries the built quote into the contact form message.
+$("#qs-book-btn").addEventListener("click", () => {
+  const pkg = PRICING.packages[qb.pkg];
+  const size = PRICING.sizes[qb.size];
+  const addons = [...qb.addons].map(k => PRICING.addons[k].label).join(", ");
+  $("#f-msg").value =
+    `Quote from your website: ${pkg.label}, ${size.label}` +
+    (addons ? `, add-ons: ${addons}` : "") +
+    ` — estimated ${fmt(quoteTotal())}.`;
+  const sel = $("#f-service");
+  [...sel.options].forEach(o => { if (o.text === pkg.label) sel.value = o.text; });
+});
+
+/* ============ PLANS ============ */
+let planMode = "member"; // "member" | "onetime"
+
+function renderPlans() {
+  $("#plan-cards").innerHTML = PRICING.plans.map(p => {
+    const showMember = planMode === "member";
+    const price = showMember ? p.member : p.onetime;
+    const saving = p.onetime - p.member;
+    return `
+      <div class="plan-card ${p.popular ? "popular" : ""}">
+        ${p.popular ? `<span class="plan-flag">Most popular</span>` : ""}
+        <h3>${p.name}</h3>
+        <p class="plan-cadence">${p.cadence}</p>
+        <div class="plan-price">
+          <span class="now">${fmt(price)}</span>
+          ${showMember ? `<span class="was">${fmt(p.onetime)}</span>` : ""}
+          <span class="per">/ visit</span>
+        </div>
+        <span class="save-badge">${showMember ? `Members save ${fmt(saving)} every visit` : ""}</span>
+        <ul class="plan-feats">${p.feats.map(f => `<li>${f}</li>`).join("")}</ul>
+        <a class="btn ${p.popular ? "btn-primary" : "btn-ghost"}" href="#contact"
+           onclick="document.getElementById('f-service').value='A recurring plan';document.getElementById('f-msg').value='I\\'m interested in the ${p.name} plan (${p.cadence.toLowerCase()}).'">
+          ${planMode === "member" ? `Start ${p.name}` : `Book one visit`}</a>
+      </div>`;
+  }).join("");
+}
+
+$("#toggle-member").addEventListener("click", () => {
+  planMode = "member";
+  $("#toggle-member").setAttribute("aria-pressed", "true");
+  $("#toggle-onetime").setAttribute("aria-pressed", "false");
+  renderPlans();
+});
+$("#toggle-onetime").addEventListener("click", () => {
+  planMode = "onetime";
+  $("#toggle-onetime").setAttribute("aria-pressed", "true");
+  $("#toggle-member").setAttribute("aria-pressed", "false");
+  renderPlans();
+});
+
+/* ============ SERVICES LIST (from PRICING) ============ */
+function renderServices() {
+  $("#svc-grid").innerHTML = Object.values(PRICING.packages).map(p => `
+    <div class="svc">
+      <div><h3>${p.label}</h3><p>${p.desc}</p></div>
+      <span class="svc-price">from ${fmt(p.base)}</span>
+    </div>`).join("");
+}
+
+/* ============ BEFORE / AFTER SLIDERS ============ */
+document.querySelectorAll("[data-ba]").forEach(slider => {
+  const wrap = slider.querySelector(".ba-after-wrap");
+  const afterImg = wrap.querySelector("img");
+  const divider = slider.querySelector(".ba-divider");
+  const range = slider.querySelector(".ba-range");
+  const sync = () => { afterImg.style.width = slider.offsetWidth + "px"; };
+  const set = v => {
+    wrap.style.width = v + "%";
+    divider.style.left = v + "%";
+  };
+  range.addEventListener("input", () => set(range.value));
+  new ResizeObserver(sync).observe(slider);
+  sync(); set(range.value);
+});
+
+/* ============ MAINTENANCE-DUE WIDGET ============ */
+// In-memory only: the date the visitor picks is not saved anywhere.
+$("#last-detail-date").addEventListener("change", e => {
+  const picked = new Date(e.target.value + "T12:00:00");
+  if (isNaN(picked)) return;
+  const weeks = (Date.now() - picked.getTime()) / (1000 * 60 * 60 * 24 * 7);
+  const fill = $("#due-fill");
+  const status = $("#due-status");
+  const btn = $("#due-book-btn");
+  if (weeks < 0) {
+    status.textContent = "That date is in the future — nice try! Pick the date of your last detail.";
+    fill.style.width = "0%"; fill.className = "due-meter-fill";
+    return;
+  }
+  const pct = Math.min(100, (weeks / 8) * 100);
+  fill.style.width = pct + "%";
+  const w = Math.floor(weeks);
+  if (weeks < 4) {
+    fill.className = "due-meter-fill";
+    status.innerHTML = `✨ <b>Still fresh</b> — detailed about ${w < 1 ? "less than a week" : w + (w === 1 ? " week" : " weeks")} ago. A quick maintenance wash around week 4–6 keeps it that way.`;
+    btn.textContent = "Schedule my next detail";
+  } else if (weeks < 6) {
+    fill.className = "due-meter-fill warn";
+    status.innerHTML = `⏳ <b>Coming due</b> — it's been about ${w} weeks. This is the sweet spot: a maintenance visit now is cheaper and easier than a deep clean later.`;
+    btn.textContent = "Book a maintenance visit";
+  } else {
+    fill.className = "due-meter-fill late";
+    status.innerHTML = `🚨 <b class="due-cta-word">Overdue</b> — about ${w} weeks since your last detail. Grime is bonding to your paint and carpets right now. Let's get you back on the calendar.`;
+    btn.textContent = "Get me back on the schedule";
+  }
+  btn.addEventListener("click", () => {
+    $("#f-msg").value = `My car was last detailed about ${w} weeks ago — ready to schedule the next one.`;
+  }, { once: true });
+});
+
+/* ============ LOYALTY PUNCH DEMO ============ */
+// Demo only, in-memory — real punch counts are tracked by the business.
+const punches = [...document.querySelectorAll("#punch-row .punch")];
+punches.forEach((p, i) => p.addEventListener("click", () => {
+  const alreadyFilled = p.classList.contains("filled") && (i === punches.length - 1 || !punches[i + 1].classList.contains("filled"));
+  const count = alreadyFilled ? i : i + 1;
+  punches.forEach((pp, j) => pp.classList.toggle("filled", j < count));
+  const note = $("#loyalty-note");
+  if (count >= punches.length) {
+    note.innerHTML = `🎉 <b>Free maintenance wash unlocked!</b> That's how it works — 5 paid details, 6th visit's wash is free.`;
+  } else if (count === 0) {
+    note.textContent = "This is a preview — we track your real punches for you. Just ask where you stand at your next appointment.";
+  } else {
+    note.innerHTML = `<b>${count} of 5</b> punches — ${5 - count} more ${5 - count === 1 ? "detail" : "details"} until your free maintenance wash.`;
+  }
+}));
+
+/* ============ REFERRAL COPY BUTTON ============ */
+$("#copy-referral").addEventListener("click", async () => {
+  const text = $("#referral-msg").textContent.trim();
+  const done = $("#copy-done");
+  try {
+    await navigator.clipboard.writeText(text);
+    done.textContent = "Copied! Paste it into a text to your friend.";
+  } catch {
+    // Fallback for older browsers / non-secure contexts
+    const ta = document.createElement("textarea");
+    ta.value = text; document.body.appendChild(ta); ta.select();
+    document.execCommand("copy"); ta.remove();
+    done.textContent = "Copied! Paste it into a text to your friend.";
+  }
+  setTimeout(() => { done.textContent = ""; }, 4000);
+});
+
+/* ============ INIT ============ */
+buildQuoteBuilder();
+renderQuote();
+renderPlans();
+renderServices();
+$("#year").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
